@@ -12,12 +12,10 @@ export function CartProvider({children}) {
   const [cart, setCart] = useState([])
 
   const getFullCartQuantity = () => {
-    let counter = cart.reduce((accumulator, currentValue) => {
+    return cart.reduce((accumulator, currentValue) => {
       return accumulator + currentValue.quantity
     }, 0) 
-    return counter 
   }
-  console.log(cart)
 
   const addToCart = (product) => {
     const existingProductIndex = cart.findIndex((item) => item.id === product.id);
