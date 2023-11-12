@@ -10,41 +10,43 @@ import useCart from 'context/cartContext'
 import { CartIcon } from '../symbols/svg';
 
 export default function Navbar() {
-    const { cart } = useCart();
+    const { getFullCartQuantity } = useCart();
+    
+    const quantity = getFullCartQuantity();
 
     return (
       <header>
-        <nav className="navbar p-2 is-flex">
-          <div className="navbar-brand">
-            <Link className="navbar-item" href="/">
-              <span className="is-size-4 has-text-weight-bold">Next.js Store</span>
+        <nav className="px-5 py-2 flex items-center justify-between">
+          <div>
+            <Link className="text-2xl" href="/">
+              <span className="font-bold mr-1">NEXT</span>
+              <span className="font-light">store</span>
             </Link>
           </div>
 
-          <div className="p-2 is-flex">
+          <div className="p-2 flex font-medium gap-7">
             <Link 
-              href="/"
-              className="navbar-item has-text-weight-medium">
+              href="/">
               Home
             </Link>
 
             <Link 
-              href="/store"
-              className="navbar-item has-text-weight-medium">
+              href="/store">
               Store
             </Link>
 
             <Link 
-              href="/blog"
-              className="navbar-item has-text-weight-medium">
+              href="/blog">
               Blog
             </Link>
-
+          </div>
+          <div className='p-2'>
+            {/* "absolute right-7 top-4"*/}
             <Link 
               href="/cart"
-              className="navbar-item has-text-weight-medium absolute right-7 top-4 border rounded-md p-2.5">
+              className="navbar-item font-medium border rounded-md p-2.5">
               <CartIcon /> 
-              {cart.length > 0 ? <div className="absolute right-0 top-0 -mt-2 -mr-2 h-4 w-4 rounded bg-blue-600 text-[11px] font-medium text-white text-center">{cart.length}</div> : null}
+              {quantity > 0 ? <div className="absolute right-0 top-0 -mt-2 -mr-2 h-4 w-4 rounded bg-blue-600 text-[11px] font-medium text-white text-center">{quantity}</div> : null}
             </Link>
           </div>
         </nav>

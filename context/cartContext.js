@@ -11,6 +11,14 @@ export default function useCart() {
 export function CartProvider({children}) {
   const [cart, setCart] = useState([])
 
+  const getFullCartQuantity = () => {
+    let counter = cart.reduce((accumulator, currentValue) => {
+      return accumulator + currentValue.quantity
+    }, 0) 
+    return counter 
+  }
+  console.log(cart)
+
   const addToCart = (product) => {
     const existingProductIndex = cart.findIndex((item) => item.id === product.id);
 
@@ -44,7 +52,7 @@ export function CartProvider({children}) {
   }
 
   return (
-    <cartContext.Provider value={{cart, addToCart, removeFromCart, updateQuantityIncrement, updateQuantityDecrement}}>
+    <cartContext.Provider value={{cart, addToCart, removeFromCart, updateQuantityIncrement, updateQuantityDecrement, getFullCartQuantity}}>
       {children}
     </cartContext.Provider>
   )

@@ -14,7 +14,7 @@ export default function ProductLabel({product}) {
   const [isAlertOpen, setAlertOpen] = useState(false)
 
   return (
-    <>
+    <div className="relative">
       {isAlertOpen ? <Alert setAlertOpen={setAlertOpen}/> : null}
       <h2 className="text-3xl mb-4">{product.title}</h2>
       <div className='text-2xl text-violet-500 mb-4'>${product.price}</div>
@@ -34,6 +34,6 @@ export default function ProductLabel({product}) {
           </Link>
       </p>
       <AddToCart productData={product} isAlertOpen={isAlertOpen} setAlertOpen={setAlertOpen}/> 
-    </>
+    </div>
   )
 }
