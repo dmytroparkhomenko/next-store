@@ -1,13 +1,18 @@
+// Next & react
 import type { Metadata } from 'next'
+import { headers } from "next/headers";
+import { StrictMode } from 'react'
+
+// Styling
 import 'bulma'
 import './globals.css'
-
-import { StrictMode } from 'react';
 
 // UI Components 
 import Navbar from '@/components/layout/navbar'
 import Footer from '@/components/layout/footer'
+import MainBanner from '@/components/sections/banner'
 
+// Cart Context
 import { CartProvider } from '@/context/cartContext'
 
 export const metadata: Metadata = {
@@ -16,12 +21,16 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const heads = headers()
+  const pathname = heads.get('next-url')
+
   return (
       <StrictMode>
         <html lang="en" className='overscroll-none'>
           <body>
             <CartProvider>
               <Navbar />
+                {pathname != null || pathname != '/' ? null : <MainBanner />} 
                 <main className='container px-5 py-5 md:py-6'>
                   {children}
                 </main>

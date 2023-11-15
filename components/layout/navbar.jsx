@@ -11,7 +11,7 @@ import { CartIcon } from '../symbols/svg';
 
 export default function Navbar() {
     const { getFullCartQuantity } = useCart();
-    
+
     const quantity = getFullCartQuantity();
 
     return (
@@ -50,7 +50,7 @@ export default function Navbar() {
             </Link>
           </div>
         </nav>
-        <hr className="pt-0 mt-0 h-0.5"/>
+        <hr className="pt-0 my-0 h-0.5"/>
       </header>
     )   
 }
