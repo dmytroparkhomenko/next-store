@@ -11,7 +11,7 @@ A Next.js 13 and App Router ecommerce featuring:
 * Dynamic OG images
 * Styling with Tailwind CSS
 
-**To make a test payment: **
+**To make a test payment:**
 1. Use 4242 4242 4242 4242 for card number and any value you like for other form fields
 2. 4000 0000 0000 9995 - Payment is declined
 3. 4000 0025 0000 3155 - Payment requires authentication
