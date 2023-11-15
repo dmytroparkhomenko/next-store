@@ -19,4 +19,6 @@ A Next.js 13 and App Router ecommerce featuring:
 **For future:** 
 1. Enable Caching or LocalStorage for storing Cart Data
 2. Rewrite on TypeScript
-3. 
+3. Buy a hosting for HeadLess WP to use posts fetching feature in production
+4. Connect a Postgres and create an authorization/registration feature
+5. Use ACF (Advanced Custom Fields plugin) API for fethching static data from HeadLess WP
